@@ -1093,3 +1093,54 @@ button:focus-visible {
         font-size: 21px;
     }
 }
+
+/* CORRECCIÓN DEL BOTÓN WHATSAPP PARA BRAVE Y CHROME */
+
+.whatsapp-float {
+    position: fixed !important;
+    right: 25px !important;
+    bottom: 25px !important;
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px;
+    max-width: 62px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.whatsapp-float svg {
+    display: block !important;
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px;
+    max-width: 35px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.whatsapp-float svg path {
+    fill: currentColor;
+}
+
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 55px !important;
+        height: 55px !important;
+        min-width: 55px;
+        max-width: 55px;
+        right: 16px !important;
+        bottom: 18px !important;
+    }
+
+    .whatsapp-float svg {
+        width: 31px !important;
+        height: 31px !important;
+        min-width: 31px;
+        max-width: 31px;
+    }
+}
