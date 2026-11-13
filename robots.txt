@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://mendez2000.github.io/compumen/sitemap.xml
