@@ -116,31 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ======================================
-    // NAVEGACIÓN ENTRE SECCIONES
-    // ======================================
-
-    const internalLinks = document.querySelectorAll(
-        'a[href^="#"]'
-    );
-
-    internalLinks.forEach(link => {
-
-        link.addEventListener("click", (event) => {
-
-            const targetId = link.getAttribute("href");
-
-            if (!targetId || targetId === "#") return;
-
-            const targetSection = document.querySelector(targetId);
-
-            if (!targetSection) return;
-
-            // El desplazamiento suave ya está definido en CSS.
-            // No necesitamos ejecutar otro scroll aquí.
-
-        });
-
-    });
+  
+ 
 
 });
