@@ -1,122 +1,95 @@
-
 // ======================================
 // COMPUMEN - JAVASCRIPT
 // ======================================
 
-
 // ESPERAR A QUE CARGUE EL DOCUMENTO
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ======================================
+  // MENÚ DE NAVEGACIÓN RESPONSIVE
+  // ======================================
 
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
 
-    // ======================================
-    // MENÚ DE NAVEGACIÓN RESPONSIVE
-    // ======================================
+  // Función para abrir y cerrar el menú
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+  function toggleMenu(forceClose = false) {
+    if (!menuToggle || !navMenu) return;
 
-    // Función para abrir y cerrar el menú
-
-    function toggleMenu(forceClose = false) {
-
-        if (!menuToggle || !navMenu) return;
-
-        if (forceClose) {
-            navMenu.classList.remove("active");
-        } else {
-            navMenu.classList.toggle("active");
-        }
-
-        const isOpen = navMenu.classList.contains("active");
-
-        menuToggle.setAttribute("aria-expanded", isOpen);
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Cerrar menú" : "Abrir menú"
-        );
-
-        // Cambiar icono del botón
-
-        menuToggle.textContent = isOpen ? "✕" : "☰";
-
+    if (forceClose) {
+      navMenu.classList.remove("active");
+    } else {
+      navMenu.classList.toggle("active");
     }
 
+    const isOpen = navMenu.classList.contains("active");
 
-    // Abrir o cerrar al presionar el botón
+    menuToggle.setAttribute("aria-expanded", isOpen);
 
-    if (menuToggle && navMenu) {
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Cerrar menú" : "Abrir menú",
+    );
 
-        menuToggle.addEventListener("click", () => {
-            toggleMenu();
-        });
+    // Cambiar icono del botón
 
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+  }
 
-        // Cerrar al seleccionar una sección
+  // Abrir o cerrar al presionar el botón
 
-        const navLinks = navMenu.querySelectorAll("a");
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      toggleMenu();
+    });
 
-        navLinks.forEach(link => {
+    // Cerrar al seleccionar una sección
 
-            link.addEventListener("click", () => {
-                toggleMenu(true);
-            });
+    const navLinks = navMenu.querySelectorAll("a");
 
-        });
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        toggleMenu(true);
+      });
+    });
 
+    // Cerrar al hacer clic fuera del menú
 
-        // Cerrar al hacer clic fuera del menú
+    document.addEventListener("click", (event) => {
+      const clickInsideMenu = navMenu.contains(event.target);
+      const clickOnButton = menuToggle.contains(event.target);
 
-        document.addEventListener("click", (event) => {
+      if (!clickInsideMenu && !clickOnButton) {
+        toggleMenu(true);
+      }
+    });
 
-            const clickInsideMenu = navMenu.contains(event.target);
-            const clickOnButton = menuToggle.contains(event.target);
+    // Cerrar con la tecla ESC
 
-            if (!clickInsideMenu && !clickOnButton) {
-                toggleMenu(true);
-            }
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        toggleMenu(true);
+        menuToggle.focus();
+      }
+    });
 
-        });
+    // Cerrar menú al cambiar a pantalla grande
 
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        toggleMenu(true);
+      }
+    });
+  }
 
-        // Cerrar con la tecla ESC
+  // ======================================
+  // AÑO AUTOMÁTICO DEL PIE DE PÁGINA
+  // ======================================
 
-        document.addEventListener("keydown", (event) => {
+  const currentYear = document.getElementById("currentYear");
 
-            if (event.key === "Escape") {
-                toggleMenu(true);
-                menuToggle.focus();
-            }
-
-        });
-
-
-        // Cerrar menú al cambiar a pantalla grande
-
-        window.addEventListener("resize", () => {
-
-            if (window.innerWidth > 768) {
-                toggleMenu(true);
-            }
-
-        });
-
-    }
-
-
-    // ======================================
-    // AÑO AUTOMÁTICO DEL PIE DE PÁGINA
-    // ======================================
-
-    const currentYear = document.getElementById("currentYear");
-
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-    }
-
-
-  
- 
-
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
 });
