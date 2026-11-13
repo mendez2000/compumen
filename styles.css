@@ -899,3 +899,197 @@ button:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =========================================
+   BOTÓN FLOTANTE DE WHATSAPP - COMPUMEN
+========================================= */
+
+.whatsapp-float {
+    position: fixed;
+    width: 62px;
+    height: 62px;
+    right: 25px;
+    bottom: 25px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-float:hover {
+    background: #1ebe5d;
+    transform: scale(1.10);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+}
+
+/* Ajuste para teléfonos */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        right: 16px;
+        bottom: 18px;
+    }
+
+    .whatsapp-float svg {
+        width: 31px;
+        height: 31px;
+    }
+}
+
+
+/* =========================================
+   GALERÍA DE PROYECTOS - COMPUMEN
+========================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.project-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-category {
+    color: #1677df;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.project-info h3 {
+    color: #101b2d;
+    margin: 12px 0;
+    font-size: 21px;
+}
+
+.project-info p {
+    color: #718096;
+    line-height: 1.7;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card img {
+        height: 230px;
+    }
+}
+
+
+/* =========================================
+   HORARIOS Y DISPONIBILIDAD - COMPUMEN
+========================================= */
+
+.schedule-card {
+    max-width: 750px;
+    margin: 40px auto 0;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.schedule-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.schedule-card h3 {
+    color: #101b2d;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.schedule-card > p {
+    color: #718096;
+    line-height: 1.7;
+}
+
+.schedule-details {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 17px 10px;
+    border-bottom: 1px solid #e8edf3;
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-item > span {
+    font-size: 25px;
+}
+
+.schedule-item strong {
+    display: block;
+    color: #101b2d;
+    margin-bottom: 5px;
+}
+
+.schedule-item p {
+    color: #718096;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.schedule-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .schedule-card {
+        padding: 25px 18px;
+    }
+
+    .schedule-card h3 {
+        font-size: 21px;
+    }
+}
